@@ -1,0 +1,194 @@
+---JAVA---
+variables--initialization, assignment
+data types--int, byte, short, long, float, double, char, String, boolean
+operators -- Arithmetic[+ - * / %],Relational[> < >= <= != ==],Logical[&& || !],Increment[++],decrement[--],ternary[?]
+
+
+---JAVA CONTROL STRUCTURE---
+conditional statements in java
+1)selection statement->[if, else, else if, if else if, switch] 
+2)jumping statement->[break, continue, return]
+3)iterative statements(loops) ->[for, while, do-while, enhanced for-loop]
+
+
+--JAVA BASICS--
+1)Arrays--->homogeneous elements of same types [array operations--]
+2)Object Array---> stores heterogeneous data inside array
+3)Strings --> collection of characters enclosed in double quotes[" "] 
+	string operations--[length(), concat(), trim(), charAt(), contains(), equals(), equalsIgnoreCase(),...etc]
+4)StringBuffer and StringBuilder---[these are the string classes which makes strings as mutable(changeable)]
+
+
+--JAVA OOPS--
+1)class --[variables + methods]
+	methods --[with return type and with parameter, without return type and without parameter, without return type and with parameter, with return type and without parameter]
+	constructors --[have same class name but don't have return type]
+	*constructor have same name of class name
+	*it uses parameters like methods
+	*inside constructor we only initialize variables
+	*constructor does not have return type
+	*it is also a method 
+	types of constructors 1)default  2)parameterized
+			
+2)objects-- [instance of class used to access variables]
+
+3)polymorphism --[more then one form] ex- (method overloading--->overloading :- multiple methods with same name but different type of parameter,oder of parameters)
+	----rules for method overloading----
+	 * method names should be same
+	 * number of parameters should be different
+	 * data type of parameters should be different
+	 * order of parameters should be different
+
+4)encapsulation -- wrapping up of data and methods in to single unit(class).Encapsulation can be achieved through
+	* make all variables are private [variables are access inside only a class]
+	* for each variable we have to create 2 methods setter method for setting value to variable and getters to retrieve value from variable
+	use of static,this keyword
+	
+5)inheritance---aquiring all the properties(variables) and behaviour(methods) from one class to another class is called as inheritance.
+	* inheritance uses extends keyword
+	* objective:---reuseability, avoid duplication
+
+	types---
+	* single  [only one parent] 
+	* multi level [one parent to child , sub child]
+	* hierarchy [one parent to multiple child]
+	* multiple [multiple parent single child]
+
+	--IMPORTANT--
+	multiple inheritance is not possible through class
+	it can be achieved through interfaces
+
+	->why multiple inheritance is not possible by class ?
+	* because extends keyword support only one class not multiple class.
+	* ambiguity reason
+	* when u create a class in java by default it is extended from object class[it is a root class]
+	
+
+	METHOD OVERRIDING--->the method created in parent class is extended in child class with same method but with different implementation is called method overriding
+	* without inheritance we cannot achieve overriding
+
+
+6)data abstraction-->abstraction is a process of hiding the implementation details and showing only functionality to the user
+	it can be achieved using
+	* abstract class  [not 100%]--->it contains only definition without implementation.
+	* interface  [100%]
+		* 1)interface is a blue print of class
+		* 2)interface contains final and static variables
+ 		* 3)it contains abstract methods(also default & static methods)
+ 		* 4)abstract methods are the methods which have only definition not implementation(but static and default methods can be implemented)
+ 		* 5)methods in interfaces are public
+ 		* 6)it support the functionalities of multiple inheritance
+ 		* 7)we can define interface with interface keyword
+ 		* 7)a class extends another class , an interface extends another interface but a class implements an interface.
+ 		* 9)we can create object for interface but we cannot instantiate interface
+
+
+--------------------------------------------------------------------------------------------
+
+--JAVA ACCESS MODIFIERS--
+access modifiers defines scope of variables and methods
+1)public: access anywhere inside package outside package 
+2)protected: accessed anywhere inside a same package if we want to access it from outside of a package we have to inherit it [from inheritance]
+3)default :  accessed anywhere in side package 
+4)private: accessed inside a class only
+
+
+-------------------------------------------------------------------------------------------------------------------
+
+
+--DATA CONVERSION IN JAVA--
+scenario 1) String -->int, double, boolean, char
+
+String--> int  Integer.parseint(string value) 
+String-->double Double.parseDouble(string value)
+String-->bool   Boolean.parseBoolean(string value)
+String-->char   Not possible
+
+scenario 2) int, double, boolean, char--->String
+bool-->string String.valueOf(bool variable)
+char-->string String.valueOf(char variable)
+double-->string String.valueOf(double variable)
+int-->string String.valueOf(int variable)
+
+
+------------------------------------------------------------------------------------------------
+
+
+--Error In java-- -> these comes because of developer mistakes
+two types of error
+   1.syntax error: missing ; , )( -> program will not execute
+   2.logical error: program will execute, but the logic will be incorrect
+
+Exception is not a error -> these comes because of user mistakes
+
+
+------------------------------------------------------------------------------------------
+
+--EXCEPTIONS IN JAVA--
+Exception is an event which will cause program termination
+	
+	types of exception
+		1)checked exception --> the exception which are identified by java compailer
+			ex->InteruptedException, FileNotFoundException, IOException etc.
+			
+			checked exceptions are handled using---
+			1) try catch
+			2) throws
+
+		2)un-checked exception-->the exceptions which are not identified by java compailer
+			ex->ArithmeticException, NullPointerException, ArrayIndexOutOfBoundsException
+
+			un-checked exceptions are handled using---
+			1)try-catch and finally
+			If we don't know the exceptions we can handle it with placing multiple catch blocks.
+			or 
+			just catch(exception e)
+
+-----------------------------------------------------------
+
+--TYPE CASTING IN JAVA--
+Converting type of data
+	2 types
+	1)Upcasting / widening -- converting value from smaller to higher type[automatic process]
+	int --> long
+	float-->double
+
+	2)Down casting / Narrowing -- converting value from larger to smaller type[we hae to cast(explisit)]
+	long-->int
+	double-->float
+
+
+
+------------------------------------------------------------
+
+
+--Collections--  -> collections hold group of objects/elements into a single entity not primitive types of data --> for oops we use collections actually --> In java collection root interface of all the collections
+    * "collection" is an interface available in java.util
+
+collection(I)  -> List(I) -> ArrayList(C)
+               -> Set (I) -> HashSet(C)
+
+Map(I) -> HashMap(C)
+
+here (I) - interfaces and (c) - class
+
+1) ArrayList-> is class which is implemented List interface
+    *Heterogenious data - allowed --> object type of data we can add
+    *Insertion Order - preserved(Index) --> Index is a kind of algorithm to store the data in the memory
+            Actually there are two types of algorithm are there to store the data in the memory -> indexing and hashing
+    *Duplicate elements - allowed
+    *multiple nulls - allowed
+
+2) Hashset - a class implemented Set interface  -> hash is the keyword here
+     *Heterogenious data --> allowed
+     *Insertion order --> Not preserved (index not supported)
+     *Duplicate elements --> Not allowed
+     *Multiple nulls --> Not allowed/ only single null is allowed
+
+     ----------------------------------
+
+3) HashMap -  --> is a class  implemented Map interface
+        *Data can be stored in the form of key, value pairs.
+        *Key is unique. But we can have duplicate values.
+        *Insertion order not preserved(index not followed).
+
